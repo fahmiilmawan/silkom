@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,9 @@ Route::get('/peminjaman', [ViewController::class, 'peminjamanPage'])->name('pemi
 Route::get('/pengembalian', [ViewController::class, 'pengembalianPage'])->name('pengembalianPage');
 Route::get('/history', [ViewController::class, 'historyPage'])->name('historyPage');
 Route::get('/user', [ViewController::class, 'userPage'])->name('userPage');
+
+//AuthUser
+Route::post('/auth-user', [UserController::class, 'auth'])->name('auth');
+Route::get('/auth-logout', [UserController::class, 'logout'])->name('logout');
 
 

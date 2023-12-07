@@ -19,7 +19,7 @@
                                     Hello, User <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="assets-dashboard/page-login.html" class="dropdown-item">
+                                    <a href="{{route('logout')}}" class="dropdown-item">
                                         <i class="icon-key"></i>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -33,4 +33,4 @@
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
-      
+

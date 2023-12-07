@@ -35,21 +35,22 @@
               <h3>Sign In | SILKOM</h3>
               <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
             </div>
-            <form action="#" method="post">
+            <form action="{{route('auth')}}" method="post">
+                @csrf
               <div class="form-group first">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" name="username" class="form-control" id="username">
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" name="password"  class="form-control" id="password">
 
               </div>
 
 
 
-              <a href="{{ route('dashboardPage') }}" class="btn btn-block btn-primary" style="color: white;text-decoration: none;"><span class="align-middle">Login</span></a>
+              <button type="submit"  class="btn btn-block btn-primary" style="color: white;text-decoration: none;"><span class="align-middle">Login</span></a>
 
 
             </form>

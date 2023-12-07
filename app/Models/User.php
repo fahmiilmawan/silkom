@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     protected $table = "user";
     protected $fillable = [
         'username',
         'email',
@@ -43,4 +45,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function peminjaman(){
+        return $this->hasMany(Peminjaman::class);
+    }
+
+    public function pengembalian(){
+        return $this->hasMany(Pengembalian::class);
+    }
 }
