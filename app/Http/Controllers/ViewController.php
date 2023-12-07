@@ -30,6 +30,40 @@ class ViewController extends Controller
         return view('dashboard.index');
     }
 
+    public function ruanganPage()
+    {
+        return view('ruangan.ruangan');
+    }
+
+    public function barangPage()
+    {
+        return view('barang.barang');
+    }
+
+    public function kategoriBarangPage()
+    {
+        return view('barang.kategoriBarang');
+    }
+
+    public function peminjamanPage()
+    {
+        return view('peminjaman.peminjaman');
+    }
+
+    public function pengembalianPage()
+    {
+        return view('pengembalian.pengembalian');
+    }
+
+    public function historyPage()
+    {
+        return view('history.history');
+    }
+
+    public function userPage()
+    {
+        return view('user.user');
+    }
     /**
      * Store a newly created resource in storage.
      */
