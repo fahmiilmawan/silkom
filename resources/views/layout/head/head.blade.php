@@ -8,8 +8,9 @@
     <title>SILKOM</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="assets-dashboard/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
-    <link href="assets-dashboard/vendor/chartist/css/chartist.min.css" rel="stylesheet">
-    <link href="assets-dashboard/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets-dashboard/vendor/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-dashboard/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets-dashboard/css/style.css') }}" rel="stylesheet">
+
 </head>
 

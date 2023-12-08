@@ -19,10 +19,10 @@ class Barang extends Model
     ];
 
     public function kategoriBarang(){
-        return $this->belongsTo(KategoriBarang::class);
+        return $this->belongsTo(KategoriBarang::class,'id_kategori');
     }
     public function ruangan(){
-        return $this->belongsTo(Ruangan::class);
+        return $this->belongsTo(Ruangan::class,'id_ruangan');
     }
 
     public function peminjaman(){

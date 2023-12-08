@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\KategoriBarang;
+use App\Models\Ruangan;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -9,20 +12,16 @@ class ViewController extends Controller
     /**
      * Display a listing of the resource.
      */
+// LANDING
+     public function landingPage()
+     {
+         return view('landing');
+     }
 
-    public function loginPage()
+// AUTH
+     public function loginPage()
     {
         return view('login');
-    }
-
-    public function registerPage()
-    {
-        return view('register');
-    }
-
-    public function landingPage()
-    {
-        return view('landing');
     }
 
     public function dashboardPage()
@@ -30,20 +29,63 @@ class ViewController extends Controller
         return view('dashboard.index');
     }
 
+// RUANGAN
     public function ruanganPage()
     {
-        return view('ruangan.ruangan');
+        $dataRuangan = Ruangan::all();
+        return view('ruangan.ruangan',compact('dataRuangan'));
     }
 
+    public function ruanganCreatePage()
+    {
+        return view('ruangan.create.ruanganCreate');
+    }
+
+    public function ruanganUpdatePage(string $id)
+    {
+        $dataRuangan = Ruangan::find($id);
+        return view('ruangan.update.ruanganUpdate',compact('dataRuangan'));
+    }
+
+// BARANG
     public function barangPage()
     {
-        return view('barang.barang');
+        $dataBarang = Barang::all();
+
+        return view('barang.barang',compact('dataBarang'));
     }
 
+    public function barangCreatePage()
+    {
+        $dataKategori = KategoriBarang::all();
+        $dataRuangan = Ruangan::all();
+        return view('barang.create.barangCreate',compact('dataKategori','dataRuangan'));
+    }
+
+    public function barangUpdatePage()
+    {
+        return view('barang.update.barangUpdate');
+    }
+
+
+// KATEGORI BARANG
     public function kategoriBarangPage()
     {
-        return view('barang.kategoriBarang');
+        $dataKategori = KategoriBarang::all();
+        return view('barang.kategoriBarang',compact('dataKategori'));
     }
+
+    public function kategoriBarangCreatePage()
+    {
+        return view('barang.create.kategoriCreate');
+    }
+
+    public function kategoriBarangUpdatePage(string $id)
+    {
+        $dataKategori = KategoriBarang::find($id);
+        return view('barang.update.kategoriUpdate',compact('dataKategori'));
+    }
+
 
     public function peminjamanPage()
     {
