@@ -17,13 +17,13 @@ class Pengembalian extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
     public function barang(){
-        return $this->belongsTo(Barang::class);
+        return $this->belongsTo(Barang::class,'id_barang');
     }
 
     public function history(){
-        return $this->belongsTo(History::class);
+        return $this->belongsTo(History::class,'id_history');
     }
 }

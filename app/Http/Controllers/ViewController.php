@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\KategoriBarang;
+use App\Models\Peminjaman;
+use App\Models\Pengembalian;
 use App\Models\Ruangan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -62,9 +65,13 @@ class ViewController extends Controller
         return view('barang.create.barangCreate',compact('dataKategori','dataRuangan'));
     }
 
-    public function barangUpdatePage()
+    public function barangUpdatePage(string $id)
     {
-        return view('barang.update.barangUpdate');
+        $dataBarang = Barang::find($id);
+        $dataKategori = KategoriBarang::all();
+        $dataBarangAll = Barang::all();
+        $dataRuangan = Ruangan::all();
+        return view('barang.update.barangUpdate',compact('dataBarang','dataKategori','dataBarangAll','dataRuangan'));
     }
 
 
@@ -86,15 +93,40 @@ class ViewController extends Controller
         return view('barang.update.kategoriUpdate',compact('dataKategori'));
     }
 
+// PEMINJAMAN
 
     public function peminjamanPage()
     {
-        return view('peminjaman.peminjaman');
+        $dataPeminjaman = Peminjaman::all();
+        return view('peminjaman.peminjaman',compact('dataPeminjaman'));
     }
+
+    public function peminjamanCreatePage()
+    {
+        $dataUser = User::all();
+        $dataBarang = Barang::all();
+        return view('peminjaman.create.createPeminjaman',compact('dataUser','dataBarang'));
+    }
+
+    public function peminjamanUpdatePage(string $id)
+    {
+        $dataPeminjaman = Peminjaman::find($id);
+        $dataUser = User::all();
+        $dataBarang = Barang::all();
+        return view('peminjaman.update.peminjamanUpdate',compact('dataPeminjaman','dataUser','dataBarang'));
+    }
+
+// PENGEMBALIAN
 
     public function pengembalianPage()
     {
-        return view('pengembalian.pengembalian');
+        $dataPengembalian = Pengembalian::all();
+        return view('pengembalian.pengembalian',compact('dataPengembalian'));
+    }
+
+    public function pengembalianCreatePage()
+    {
+        return view('pengembalian.create.pengembalianCreate');
     }
 
     public function historyPage()
@@ -102,9 +134,24 @@ class ViewController extends Controller
         return view('history.history');
     }
 
+// USER
     public function userPage()
     {
-        return view('user.user');
+        $dataUser = User::all();
+        return view('user.user',compact('dataUser'));
+    }
+
+    public function userCreatePage()
+    {
+
+        return view('user.create.userCreate');
+    }
+
+    public function userUpdatePage(string $id)
+    {
+        $dataUser = User::find($id);
+        $dataUserAll = User::all();
+        return view('user.update.userUpdate',compact('dataUser','dataUserAll'));
     }
     /**
      * Store a newly created resource in storage.

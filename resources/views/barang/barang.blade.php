@@ -38,7 +38,7 @@
                     <td class="text-center">{{ $barang->ruangan->nama_ruangan }}</td>
                     <td class="text-center">{{ $barang->deskripsi }}</td>
                     <td class="text-center">
-                        <a href="{{ route('barangUpdatePage') }}" class="btn btn-primary">Ubah</a> |
+                        <a href="{{ route('barangUpdatePage',$barang->id) }}" class="btn btn-primary">Ubah</a> |
                         <a href="{{ route('barangDelete',$barang->id) }}" class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>

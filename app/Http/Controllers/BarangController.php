@@ -71,7 +71,27 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dataBarang = $request->validate([
+            'nama_barang' => 'required',
+            'id_kategori' => 'required',
+            'jumlah' => 'required',
+            'status' => 'required',
+            'id_ruangan' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        $dataBarang = Barang::find($id);
+        $dataBarang->nama_barang = $request->nama_barang;
+        $dataBarang->id_kategori = $request->id_kategori;
+        $dataBarang->jumlah = $request->jumlah;
+        $dataBarang->status = $request->status;
+        $dataBarang->id_ruangan = $request->id_ruangan;
+        $dataBarang->deskripsi = $request->deskripsi;
+        $dataBarang->save();
+
+        return redirect()->route('barangPage');
+
+
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriBarangController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
@@ -33,18 +34,30 @@ Route::get('/ruangan-update/{id}', [ViewController::class, 'ruanganUpdatePage'])
 //Barang
 Route::get('/barang', [ViewController::class, 'barangPage'])->name('barangPage');
 Route::get('/barang-create', [ViewController::class, 'barangCreatePage'])->name('barangCreatePage');
-Route::get('/barang-update', [ViewController::class, 'barangUpdatePage'])->name('barangUpdatePage');
+Route::get('/barang-update/{id}', [ViewController::class, 'barangUpdatePage'])->name('barangUpdatePage');
 
 //KategoriBarang
 Route::get('/kategori-barang', [ViewController::class, 'kategoriBarangPage'])->name('kategoriBarangPage');
 Route::get('/kategori-barang-create', [ViewController::class, 'kategoriBarangCreatePage'])->name('kategoriBarangCreatePage');
 Route::get('/kategori-barang-update/{id}', [ViewController::class, 'kategoriBarangUpdatePage'])->name('kategoriBarangUpdatePage');
 
-
+//Peminjaman
 Route::get('/peminjaman', [ViewController::class, 'peminjamanPage'])->name('peminjamanPage');
+Route::get('/peminjaman-create', [ViewController::class, 'peminjamanCreatePage'])->name('peminjamanCreatePage');
+Route::get('/peminjaman-update/{id}', [ViewController::class, 'peminjamanUpdatePage'])->name('peminjamanUpdatePage');
+
+//Pengembalian
 Route::get('/pengembalian', [ViewController::class, 'pengembalianPage'])->name('pengembalianPage');
+Route::get('/pengembalian-create', [ViewController::class, 'pengembalianCreatePage'])->name('pengembalianCreatePage');
+Route::get('/pengembalian-update', [ViewController::class, 'pengembalianUpdatePage'])->name('pengembalianUpdatePage');
+
+//History
 Route::get('/history', [ViewController::class, 'historyPage'])->name('historyPage');
+
+//User
 Route::get('/user', [ViewController::class, 'userPage'])->name('userPage');
+Route::get('/user-create', [ViewController::class, 'userCreatePage'])->name('userCreatePage');
+Route::get('/user-update/{id}', [ViewController::class, 'userUpdatePage'])->name('userUpdatePage');
 
 //AuthUser
 Route::post('/auth-user', [UserController::class, 'auth'])->name('auth');
@@ -64,9 +77,16 @@ Route::post('/kategori-delete/{id}',[KategoriBarangController::class,'destroy'])
 
 //BARANG
 Route::post('/barang-store',[BarangController::class,'store'])->name('barangStore');
+Route::post('/barang-update/{id}',[BarangController::class,'update'])->name('barangUpdate');
 Route::post('/barang-delete/{id}',[BarangController::class,'destroy'])->name('barangDelete');
 
+//USER
+Route::post('/user-store',[UserController::class,'store'])->name('userStore');
+Route::post('/user-update/{id}',[UserController::class,'update'])->name('userUpdate');
 
+//PEMINJAMAN
+Route::post('/peminjaman-store',[PeminjamanController::class,'store'])->name('peminjamanStore');
+Route::post('/peminjaman-update/{id}',[PeminjamanController::class,'update'])->name('peminjamanUpdate');
 
 
 
