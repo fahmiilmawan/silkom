@@ -34,7 +34,7 @@
                     <td class="text-center">{{ $user->role }}</td>
                     <td class="text-center" class="text-center">
                         <a href="{{ route('userUpdatePage',$user->id)}}" class="btn btn-primary">Ubah</a> |
-                        {{-- <a href="{{ route('userDelete',$user->id)}}" class="btn btn-danger">Hapus</a> --}}
+                        <a href="{{ route('userDelete',$user->id)}}" class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
                 @endforeach

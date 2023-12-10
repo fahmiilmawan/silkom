@@ -99,6 +99,8 @@ class BarangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dataBarang = Barang::find($id);
+        $dataBarang->delete();
+        return redirect()->back();
     }
 }

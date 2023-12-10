@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\History;
 use App\Models\KategoriBarang;
 use App\Models\Peminjaman;
 use App\Models\Pengembalian;
@@ -129,9 +130,18 @@ class ViewController extends Controller
         return view('pengembalian.create.pengembalianCreate');
     }
 
+    public function pengembalianUpdatePage(string $id)
+    {
+        $dataPengembalian = Pengembalian::find($id);
+        $dataUser = User::all();
+        $dataBarang = Barang::all();
+        return view('pengembalian.update.pengembalianUpdate',compact('dataPengembalian','dataUser','dataBarang'));
+    }
+
     public function historyPage()
     {
-        return view('history.history');
+        $dataHistory = History::all();
+        return view('history.history',compact('dataHistory'));
     }
 
 // USER

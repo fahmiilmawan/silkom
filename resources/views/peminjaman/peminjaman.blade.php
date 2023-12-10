@@ -29,14 +29,13 @@
                 @foreach ($dataPeminjaman as $peminjaman )
                 <tr>
                     <td class="text-center">{{ $i++ }}</td>
-                    <td class="text-center">{{ $peminjaman->user->email }}</td>
+                    <td class="text-center">{{ $peminjaman->user->username }}</td>
                     <td class="text-center">{{ $peminjaman->barang->nama_barang}}</td>
                     <td class="text-center">{{ $peminjaman->waktu_pinjam }}</td>
                     <td class="text-center">{{ $peminjaman->status }}</td>
 
                     <td class="text-center">
-                        <a href="{{ route('peminjamanUpdatePage',$peminjaman->id) }}" class="btn btn-primary">Ubah</a> |
-                        {{-- <a href="{{ route('peminjamanDelete',$peminjaman->id) }}" class="btn btn-danger">Hapus</a> --}}
+                        <a href="{{ route('peminjamanDelete',$peminjaman->id) }}" class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
                 @endforeach

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
@@ -49,7 +51,7 @@ Route::get('/peminjaman-update/{id}', [ViewController::class, 'peminjamanUpdateP
 //Pengembalian
 Route::get('/pengembalian', [ViewController::class, 'pengembalianPage'])->name('pengembalianPage');
 Route::get('/pengembalian-create', [ViewController::class, 'pengembalianCreatePage'])->name('pengembalianCreatePage');
-Route::get('/pengembalian-update', [ViewController::class, 'pengembalianUpdatePage'])->name('pengembalianUpdatePage');
+Route::get('/pengembalian-update/{id}', [ViewController::class, 'pengembalianUpdatePage'])->name('pengembalianUpdatePage');
 
 //History
 Route::get('/history', [ViewController::class, 'historyPage'])->name('historyPage');
@@ -73,22 +75,30 @@ Route::get('/ruangan-delete/{id}',[RuanganController::class,'destroy'])->name('r
 // KATEGORI-BARANG
 Route::post('/kategori-store',[KategoriBarangController::class,'store'])->name('kategoriStore');
 Route::post('/kategori-update/{id}',[KategoriBarangController::class,'update'])->name('kategoriUpdate');
-Route::post('/kategori-delete/{id}',[KategoriBarangController::class,'destroy'])->name('kategoriDelete');
+Route::get('/kategori-delete/{id}',[KategoriBarangController::class,'destroy'])->name('kategoriDelete');
 
 //BARANG
 Route::post('/barang-store',[BarangController::class,'store'])->name('barangStore');
 Route::post('/barang-update/{id}',[BarangController::class,'update'])->name('barangUpdate');
-Route::post('/barang-delete/{id}',[BarangController::class,'destroy'])->name('barangDelete');
+Route::get('/barang-delete/{id}',[BarangController::class,'destroy'])->name('barangDelete');
 
 //USER
 Route::post('/user-store',[UserController::class,'store'])->name('userStore');
 Route::post('/user-update/{id}',[UserController::class,'update'])->name('userUpdate');
+Route::get('/user-delete/{id}',[UserController::class,'destroy'])->name('userDelete');
 
 //PEMINJAMAN
 Route::post('/peminjaman-store',[PeminjamanController::class,'store'])->name('peminjamanStore');
 Route::post('/peminjaman-update/{id}',[PeminjamanController::class,'update'])->name('peminjamanUpdate');
+Route::get('/peminjaman-delete/{id}',[PeminjamanController::class,'destroy'])->name('peminjamanDelete');
 
 
+//PENGEMBALIAN
+Route::post('/pengembalian-store',[PengembalianController::class,'store'])->name('pengembalianStore');
+Route::post('/pengembalian-update/{id}',[PengembalianController::class,'update'])->name('pengembalianUpdate');
+
+// HISTORY
+Route::get('/history-delete/{id}',[HistoryController::class,'destroy'])->name('historyDelete');
 
 
 

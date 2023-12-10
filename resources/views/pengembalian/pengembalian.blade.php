@@ -17,7 +17,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Nama Peminjam</th>
                     <th class="text-center">Nama Barang</th>
-                    <th class="text-center">Waktu Pinjam</th>
+                    <th class="text-center">Waktu Pengembalian</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -29,20 +29,18 @@
                 @foreach ($dataPengembalian as $pengembalian )
                 <tr>
                     <td class="text-center">{{ $i++ }}</td>
-                    <td class="text-center">{{ $pengembalian->user->email }}</td>
+                    <td class="text-center">{{ $pengembalian->user->username }}</td>
                     <td class="text-center">{{ $pengembalian->barang->nama_barang}}</td>
-                    <td class="text-center">{{ $pengembalian->waktu_pinjam }}</td>
+                    <td class="text-center">{{ $pengembalian->waktu_pengembalian }}</td>
                     <td class="text-center">{{ $pengembalian->status }}</td>
 
                     <td class="text-center">
-                        <a href="{{ route('pengembalianUpdatePage',$pengembalian->id) }}" class="btn btn-primary">Ubah</a> |
-                        {{-- <a href="{{ route('pengembalianDelete',$pengembalian->id) }}" class="btn btn-danger">Hapus</a> --}}
+                        <a href="{{ route('pengembalianUpdatePage',$pengembalian->id) }}" class="btn btn-primary">Ubah</a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ route('pengembalianCreatePage') }}" class="btn btn-success">Tambah</a>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

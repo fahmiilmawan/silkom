@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\History;
 use App\Models\Peminjaman;
+use App\Models\Pengembalian;
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -43,9 +44,17 @@ class PeminjamanController extends Controller
         $dataPeminjaman->status = $request->status;
         $dataPeminjaman->save();
 
+        $dataPengembalian = new Pengembalian;
+        $dataPengembalian->id_user = $request->id_user;
+        $dataPengembalian->id_barang = $request->id_barang;
+        $dataPengembalian->waktu_pengembalian = 'Belum Dikembalikan';
+        $dataPengembalian->status = $request->status;
+        $dataPengembalian->save();
+
+
         $dataHistory = new History;
         $dataHistory->id_peminjaman = $dataPeminjaman->id;
-        $dataHistory->id_pengembalian = $dataPeminjaman->id;
+        $dataHistory->id_pengembalian = $dataPengembalian->id;
         $dataHistory->status = $dataPeminjaman->status;
         $dataHistory->save();
 
@@ -95,6 +104,14 @@ class PeminjamanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dataPeminjaman = Peminjaman::find($id);
+        $dataHistory = History::where('id_peminjaman',$id)->first();
+        $dataPengembalian = Pengembalian::find($dataHistory->id_pengembalian);
+        $dataPengembalian->delete();
+        $dataHistory->delete();
+        $dataPeminjaman->delete();
+        return redirect()->back();
     }
+
+
 }

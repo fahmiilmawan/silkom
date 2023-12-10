@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengembalian;
+use App\Models\History;
 use Illuminate\Http\Request;
 
-class PengembalianController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -52,21 +52,7 @@ class PengembalianController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $dataPengembalian = $request->validate([
-            'id_user' => 'required',
-            'id_barang' => 'required',
-            'waktu_pengembalian' => 'required',
-            'status' => 'required',
-        ]);
-
-        $dataPengembalian = Pengembalian::find($id);
-        $dataPengembalian->id_user = $request->id_user;
-        $dataPengembalian->id_barang = $request->id_barang;
-        $dataPengembalian->waktu_pengembalian = $request->waktu_pengembalian;
-        $dataPengembalian->status = $request->status;
-        $dataPengembalian->save();
-
-        return redirect()->route('pengembalianPage');
+        //
     }
 
     /**
@@ -74,6 +60,8 @@ class PengembalianController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dataHistory = History::find($id);
+        $dataHistory->delete();
+        return redirect()->back();
     }
 }

@@ -16,11 +16,11 @@ class History extends Model
     ];
 
     public function peminjaman(){
-        return $this->belongsTo(Peminjaman::class);
+        return $this->belongsTo(Peminjaman::class,'id_peminjaman');
     }
 
     public function pengembalian(){
-        return $this->belongsTo(Pengembalian::class);
+        return $this->belongsTo(Pengembalian::class,'id_pengembalian');
     }
 
 }
