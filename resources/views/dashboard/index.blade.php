@@ -16,8 +16,8 @@
                             <i class="ti-money text-success border-success"></i>
                         </div>
                         <div class="stat-content d-inline-block">
-                            <div class="stat-text">Profit</div>
-                            <div class="stat-digit">1,012</div>
+                            <div class="stat-text">Data Ruangan</div>
+                                <div class="stat-digit">{{ $dataRuangan }}</div>
                         </div>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                             <i class="ti-user text-primary border-primary"></i>
                         </div>
                         <div class="stat-content d-inline-block">
-                            <div class="stat-text">Customer</div>
-                            <div class="stat-digit">961</div>
+                            <div class="stat-text">Data Barang</div>
+                            <div class="stat-digit">{{ $dataBarang }}</div>
                         </div>
                     </div>
                 </div>
@@ -42,8 +42,8 @@
                             <i class="ti-layout-grid2 text-pink border-pink"></i>
                         </div>
                         <div class="stat-content d-inline-block">
-                            <div class="stat-text">Projects</div>
-                            <div class="stat-digit">770</div>
+                            <div class="stat-text">Data Peminjaman</div>
+                            <div class="stat-digit">{{ $dataPeminjaman }}</div>
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                             <i class="ti-link text-danger border-danger"></i>
                         </div>
                         <div class="stat-content d-inline-block">
-                            <div class="stat-text">Referral</div>
-                            <div class="stat-digit">2,781</div>
+                            <div class="stat-text">Data Pengembalian</div>
+                            <div class="stat-digit">{{ $dataPengembalian }}</div>
                         </div>
                     </div>
                 </div>

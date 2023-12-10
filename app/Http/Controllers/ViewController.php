@@ -19,6 +19,7 @@ class ViewController extends Controller
 // LANDING
      public function landingPage()
      {
+
          return view('landing');
      }
 
@@ -30,7 +31,11 @@ class ViewController extends Controller
 
     public function dashboardPage()
     {
-        return view('dashboard.index');
+         $dataBarang = Barang::all()->count();
+         $dataRuangan = Ruangan::all()->count();
+         $dataPeminjaman = Peminjaman::all()->count();
+         $dataPengembalian = Pengembalian::where('status','Sudah Dikembalikan')->count();
+        return view('dashboard.index',compact('dataBarang','dataRuangan','dataPeminjaman','dataPengembalian'));
     }
 
 // RUANGAN
