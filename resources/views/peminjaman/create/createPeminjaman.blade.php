@@ -28,6 +28,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <label for="">Jumlah Pinjam</label>
+                        <input type="number" name="jumlah_pinjam" class="form-control input-default " placeholder="Masukkan Jumlah Barang">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="">Waktu Pinjam</label>
                         <input type="datetime-local" name="waktu_pinjam" class="form-control input-default " placeholder="Masukkan Jumlah Barang">
                     </div>

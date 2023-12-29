@@ -13,6 +13,7 @@ class Peminjaman extends Model
         'id_user',
         'id_barang',
         'waktu_pinjam',
+        'jumlah_pinjam',
         'status'
     ];
 

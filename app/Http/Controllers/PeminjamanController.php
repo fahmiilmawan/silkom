@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\History;
 use App\Models\Peminjaman;
 use App\Models\Pengembalian;
@@ -33,22 +34,38 @@ class PeminjamanController extends Controller
         $dataPeminjaman = $request->validate([
             'id_user' => 'required',
             'id_barang' => 'required',
+            'jumlah_pinjam' => 'required',
             'waktu_pinjam' => 'required',
             'status' => 'required'
         ]);
 
         $dataPeminjaman = new Peminjaman;
+        $dataBarang = Barang::find($request->id_barang);
+
+        // Validasi apakah jumlah pinjam lebih dari jumlah barang
+
         $dataPeminjaman->id_user = $request->id_user;
         $dataPeminjaman->id_barang = $request->id_barang;
+        $dataPeminjaman->jumlah_pinjam = $request->jumlah_pinjam;
         $dataPeminjaman->waktu_pinjam = $request->waktu_pinjam;
         $dataPeminjaman->status = $request->status;
+
+        if ($request->jumlah_pinjam > $dataBarang->jumlah) {
+            return redirect()->route('peminjamanCreatePage')->with('Message','Gagal');
+
+        }
+        // Pengurangan Jumlah Pinjam dan Jumlah Barang
+
+        $dataBarang->jumlah -= $request->jumlah_pinjam;
         $dataPeminjaman->save();
+        $dataBarang->save();
 
         $dataPengembalian = new Pengembalian;
         $dataPengembalian->id_user = $request->id_user;
         $dataPengembalian->id_barang = $request->id_barang;
         $dataPengembalian->waktu_pengembalian = 'Belum Dikembalikan';
         $dataPengembalian->status = $request->status;
+        $dataPengembalian->jumlah_pengembalian = $request->jumlah_pinjam;
         $dataPengembalian->save();
 
 
@@ -59,6 +76,7 @@ class PeminjamanController extends Controller
         $dataHistory->save();
 
         return redirect()->route('peminjamanPage');
+
     }
 
     /**

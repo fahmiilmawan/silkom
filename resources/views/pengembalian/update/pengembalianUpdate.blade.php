@@ -32,6 +32,12 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <label for="">Jumlah Pengembalian</label>
+                        <input type="number" name="jumlah_pengembalian" class="form-control input-default " value="{{ $dataPengembalian->jumlah_pengembalian }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="">Waktu Pengembalian</label>
                         <input type="datetime-local" name="waktu_pengembalian" class="form-control input-default " value="{{ $dataPengembalian->waktu_pengembalian }}">
                     </div>

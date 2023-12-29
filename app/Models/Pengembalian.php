@@ -12,6 +12,7 @@ class Pengembalian extends Model
     protected $fillable = [
         'id_user',
         'id_barang',
+        'jumlah_pengembalian',
         'waktu_pengembalian',
         'status'
     ];

@@ -17,6 +17,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Nama Peminjam</th>
                     <th class="text-center">Nama Barang</th>
+                    <th class="text-center">Jumlah</th>
                     <th class="text-center">Waktu Pengembalian</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Action</th>
@@ -31,6 +32,7 @@
                     <td class="text-center">{{ $i++ }}</td>
                     <td class="text-center">{{ $pengembalian->user->username }}</td>
                     <td class="text-center">{{ $pengembalian->barang->nama_barang}}</td>
+                    <td class="text-center">{{ $pengembalian->jumlah_pengembalian}}</td>
                     <td class="text-center">{{ $pengembalian->waktu_pengembalian }}</td>
                     <td class="text-center">{{ $pengembalian->status }}</td>
 
